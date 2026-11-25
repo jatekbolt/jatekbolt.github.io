@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Games</title>
+<meta name="description" content="Családi játékok: amőba és Kódtörő. Family games: five in a row and Codebreaker.">
+<meta property="og:title" content="Játékok · Games">
+<meta property="og:description" content="Válassz egy játékot! · Pick a game!">
+<meta name="theme-color" content="#1E3F9C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Játékok">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23F9FBFD'/%3E%3Cpath d='M16 16L42 42M42 16L16 42' stroke='%231E3F9C' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='70' cy='29' r='13' fill='none' stroke='%23C0392B' stroke-width='8'/%3E%3Ccircle cx='30' cy='71' r='13' fill='%23D2302C'/%3E%3Ccircle cx='70' cy='71' r='13' fill='%23F0CC35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --desk: #E2E8EF; --paper: #F9FBFD; --grid: #B7CDE3; --margin: #E06D75;
+    --ink-x: #1E3F9C; --ink-o: #C0392B; --text: #22303F; --muted: #586676; --edge: #C9D4E0;
+    --hand: "Kalam", "Comic Sans MS", "Segoe Print", "Bradley Hand", cursive;
+    --sans: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --desk: #0F151D; --paper: #18212D; --grid: #2D3E53; --margin: #94444D;
+      --ink-x: #86A9FF; --ink-o: #FF8576; --text: #E2E8F0; --muted: #9AA8B8; --edge: #2A3647;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --desk: #0F151D; --paper: #18212D; --grid: #2D3E53; --margin: #94444D;
+    --ink-x: #86A9FF; --ink-o: #FF8576; --text: #E2E8F0; --muted: #9AA8B8; --edge: #2A3647;
+    color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body { margin: 0; background: var(--desk); color: var(--text); font-family: var(--sans); font-size: 1rem; line-height: 1.5; }
+  main { max-width: 980px; margin: 0 auto; padding: 28px 20px 48px; }
+  .lang { display: flex; gap: .35rem; margin: 0 0 1.2rem; }
+  .lang-btn {
+    font: .85rem var(--sans); padding: .25rem .7rem; border-radius: 999px; cursor: pointer;
+    border: 1.5px solid var(--edge); background: var(--paper); color: var(--muted);
+  }
+  .lang-btn[aria-pressed="true"] { border-color: var(--ink-x); color: var(--ink-x); font-weight: 700; }
+  .lang-btn:focus-visible { outline: 2px solid var(--ink-x); outline-offset: 2px; }
+  h1 {
+    font-family: var(--hand); font-weight: 700; color: var(--ink-x);
+    font-size: clamp(3rem, 10vw, 4.6rem); line-height: 1; margin: 0 0 .4rem;
+    transform: rotate(-2deg); transform-origin: left center;
+  }
+  .lead { margin: 0 0 2rem; color: var(--muted); max-width: 46ch; font-size: 1.05rem; }
+
+  .games { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .game {
+    display: grid; gap: .5rem; align-content: start;
+    color: inherit; text-decoration: none; border-radius: 14px; padding: 4px;
+  }
+  .game:focus-visible { outline: 3px solid var(--ink-x); outline-offset: 6px; }
+  .pic { display: block; width: 100%; height: auto; transition: transform .15s ease; }
+  .game:hover .pic, .game:focus-visible .pic { transform: rotate(-1.2deg) translateY(-3px); }
+  .game h2 { font-family: var(--hand); font-size: 2.1rem; line-height: 1.1; margin: .6rem 0 0; color: var(--ink-x); }
+  .game p { margin: 0; color: var(--muted); max-width: 40ch; }
+  .play {
+    justify-self: start; margin-top: .5rem;
+    font: 700 1rem var(--sans); padding: .6rem 1.1rem; border-radius: 8px;
+    background: var(--ink-x); color: var(--paper);
+  }
+  .tip { margin: 2.6rem 0 0; color: var(--muted); font-size: .9rem; max-width: 60ch; }
+  @media (prefers-reduced-motion: reduce) { .pic { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="lang" role="group" aria-label="Language / Nyelv">
+    <button type="button" class="lang-btn" data-lang="hu" lang="hu">Magyar</button>
+    <button type="button" class="lang-btn" data-lang="en" lang="en">English</button>
+  </div>
+  <h1 data-i18n="title"></h1>
+  <p class="lead" data-i18n="lead"></p>
+
+  <div class="games">
+    <!-- To add a game later, copy one <a class="game"> block and change its link, picture and texts. -->
+    <a class="game" href="amoba/">
+      <svg class="pic" viewBox="0 0 320 200" aria-hidden="true">
+        <defs>
+          <pattern id="sq" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="var(--grid)" stroke-width="1"/></pattern>
+        </defs>
+        <rect x="1" y="1" width="318" height="198" rx="6" fill="var(--paper)" stroke="var(--edge)"/>
+        <rect x="1" y="1" width="318" height="198" rx="6" fill="url(#sq)"/>
+        <line x1="34" y1="1" x2="34" y2="199" stroke="var(--margin)" stroke-width="2" opacity=".75"/>
+        <g fill="none" stroke-width="4.5" stroke-linecap="round">
+          <g stroke="var(--ink-x)">
+            <path d="M85 45 L95 55 M95 45 L85 55"/><path d="M105 65 L115 75 M115 65 L105 75"/>
+            <path d="M125 85 L135 95 M135 85 L125 95"/><path d="M145 105 L155 115 M155 105 L145 115"/>
+            <path d="M165 125 L175 135 M175 125 L165 135"/><path d="M185 65 L195 75 M195 65 L185 75"/>
+            <path d="M225 105 L235 115 M235 105 L225 115"/>
+          </g>
+          <g stroke="var(--ink-o)">
+            <circle cx="130" cy="50" r="6.5"/><circle cx="150" cy="70" r="6.5"/><circle cx="170" cy="90" r="6.5"/>
+            <circle cx="110" cy="110" r="6.5"/><circle cx="190" cy="110" r="6.5"/><circle cx="210" cy="90" r="6.5"/>
+          </g>
+          <path d="M80 40 L180 140" stroke="var(--ink-x)" stroke-width="3" opacity=".8"/>
+        </g>
+      </svg>
+      <h2>Amőba</h2>
+      <p data-i18n="amobaText"></p>
+      <span class="play" data-i18n="play"></span>
+    </a>
+
+    <a class="game" href="kodtoro/">
+      <svg class="pic" viewBox="0 0 320 200" aria-hidden="true">
+        <defs>
+          <radialGradient id="r" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#E88A86"/><stop offset=".5" stop-color="#D2302C"/><stop offset="1" stop-color="#821D1B"/></radialGradient>
+          <radialGradient id="y" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#F6E08A"/><stop offset=".5" stop-color="#F0CC35"/><stop offset="1" stop-color="#957E21"/></radialGradient>
+          <radialGradient id="g" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#8FD5AB"/><stop offset=".5" stop-color="#3DB56C"/><stop offset="1" stop-color="#267043"/></radialGradient>
+          <radialGradient id="b" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#86CAEC"/><stop offset=".5" stop-color="#2B9FD9"/><stop offset="1" stop-color="#1B6286"/></radialGradient>
+          <radialGradient id="k" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#7B8285"/><stop offset=".5" stop-color="#1F2629"/><stop offset="1" stop-color="#0d1011"/></radialGradient>
+          <radialGradient id="w" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#EEEAE0"/><stop offset="1" stop-color="#9a978f"/></radialGradient>
+          <linearGradient id="pl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A715D"/><stop offset=".5" stop-color="#855E4C"/><stop offset="1" stop-color="#6E4C3C"/></linearGradient>
+          <linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A57C67"/><stop offset="1" stop-color="#76513F"/></linearGradient>
+        </defs>
+        <ellipse cx="163" cy="194" rx="80" ry="6" fill="rgba(40,24,14,.18)"/>
+        <rect x="85" y="8" width="151" height="182" rx="11" fill="url(#pl)"/><rect x="85" y="8" width="151" height="182" rx="11" fill="none" stroke="rgba(0,0,0,.25)"/><rect x="90" y="13" width="111" height="30" rx="4" fill="#9A715D"/><rect x="92" y="15" width="107" height="26" rx="3" fill="url(#sh)"/><line x1="97" y1="17" x2="97" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="106" y1="17" x2="106" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="115" y1="17" x2="115" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="124" y1="17" x2="124" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="133" y1="17" x2="133" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="142" y1="17" x2="142" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="151" y1="17" x2="151" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="160" y1="17" x2="160" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="169" y1="17" x2="169" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="178" y1="17" x2="178" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="187" y1="17" x2="187" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><line x1="196" y1="17" x2="196" y2="39" stroke="rgba(255,255,255,.08)" stroke-width="2"/><circle cx="216" cy="28" r="9" fill="none" stroke="#A9826D" stroke-width="2"/><circle cx="216" cy="28" r="2.5" fill="#6E4C3C"/><rect x="94" y="50" width="22" height="22" rx="3" fill="#6A4839"/><rect x="121" y="50" width="22" height="22" rx="3" fill="#6A4839"/><rect x="148" y="50" width="22" height="22" rx="3" fill="#6A4839"/><rect x="175" y="50" width="22" height="22" rx="3" fill="#6A4839"/><rect x="205" y="50" width="22" height="22" rx="3" fill="#6A4839"/><circle cx="105" cy="61" r="2.6" fill="#22150F"/><circle cx="132" cy="61" r="2.6" fill="#22150F"/><circle cx="159" cy="61" r="2.6" fill="#22150F"/><circle cx="186" cy="61" r="2.6" fill="#22150F"/><circle cx="211" cy="56" r="1.5" fill="#22150F"/><circle cx="221" cy="56" r="1.5" fill="#22150F"/><circle cx="211" cy="66" r="1.5" fill="#22150F"/><circle cx="221" cy="66" r="1.5" fill="#22150F"/><rect x="94" y="77" width="22" height="22" rx="3" fill="#6A4839"/><rect x="121" y="77" width="22" height="22" rx="3" fill="#6A4839"/><rect x="148" y="77" width="22" height="22" rx="3" fill="#6A4839"/><rect x="175" y="77" width="22" height="22" rx="3" fill="#6A4839"/><rect x="205" y="77" width="22" height="22" rx="3" fill="#6A4839"/><circle cx="105" cy="88" r="2.6" fill="#22150F"/><circle cx="132" cy="88" r="2.6" fill="#22150F"/><circle cx="159" cy="88" r="2.6" fill="#22150F"/><circle cx="186" cy="88" r="2.6" fill="#22150F"/><circle cx="211" cy="83" r="1.5" fill="#22150F"/><circle cx="221" cy="83" r="1.5" fill="#22150F"/><circle cx="211" cy="93" r="1.5" fill="#22150F"/><circle cx="221" cy="93" r="1.5" fill="#22150F"/><rect x="94" y="104" width="22" height="22" rx="3" fill="#6A4839"/><rect x="121" y="104" width="22" height="22" rx="3" fill="#6A4839"/><rect x="148" y="104" width="22" height="22" rx="3" fill="#6A4839"/><rect x="175" y="104" width="22" height="22" rx="3" fill="#6A4839"/><rect x="205" y="104" width="22" height="22" rx="3" fill="#6A4839"/><circle cx="106" cy="116.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="105" cy="115" r="9.6" fill="url(#g)"/><circle cx="133" cy="116.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="132" cy="115" r="9.6" fill="url(#y)"/><circle cx="160" cy="116.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="159" cy="115" r="9.6" fill="url(#b)"/><circle cx="187" cy="116.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="186" cy="115" r="9.6" fill="url(#k)"/><circle cx="211" cy="110" r="3.6" fill="#15191B"/><circle cx="221" cy="110" r="3.6" fill="#15191B"/><circle cx="211" cy="120" r="3.6" fill="#15191B"/><circle cx="221" cy="120" r="1.5" fill="#22150F"/><rect x="94" y="131" width="22" height="22" rx="3" fill="#6A4839"/><rect x="121" y="131" width="22" height="22" rx="3" fill="#6A4839"/><rect x="148" y="131" width="22" height="22" rx="3" fill="#6A4839"/><rect x="175" y="131" width="22" height="22" rx="3" fill="#6A4839"/><rect x="205" y="131" width="22" height="22" rx="3" fill="#6A4839"/><circle cx="106" cy="143.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="105" cy="142" r="9.6" fill="url(#r)"/><circle cx="133" cy="143.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="132" cy="142" r="9.6" fill="url(#y)"/><circle cx="160" cy="143.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="159" cy="142" r="9.6" fill="url(#g)"/><circle cx="187" cy="143.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="186" cy="142" r="9.6" fill="url(#k)"/><circle cx="211" cy="137" r="3.6" fill="#15191B"/><circle cx="221" cy="137" r="3.6" fill="#EFE2C0"/><circle cx="211" cy="147" r="1.5" fill="#22150F"/><circle cx="221" cy="147" r="1.5" fill="#22150F"/><rect x="94" y="158" width="22" height="22" rx="3" fill="#6A4839"/><rect x="121" y="158" width="22" height="22" rx="3" fill="#6A4839"/><rect x="148" y="158" width="22" height="22" rx="3" fill="#6A4839"/><rect x="175" y="158" width="22" height="22" rx="3" fill="#6A4839"/><rect x="205" y="158" width="22" height="22" rx="3" fill="#6A4839"/><circle cx="106" cy="170.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="105" cy="169" r="9.6" fill="url(#r)"/><circle cx="133" cy="170.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="132" cy="169" r="9.6" fill="url(#y)"/><circle cx="160" cy="170.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="159" cy="169" r="9.6" fill="url(#b)"/><circle cx="187" cy="170.5" r="9.6" fill="rgba(0,0,0,.35)"/><circle cx="186" cy="169" r="9.6" fill="url(#w)"/><circle cx="211" cy="164" r="3.6" fill="#15191B"/><circle cx="221" cy="164" r="3.6" fill="#15191B"/><circle cx="211" cy="174" r="3.6" fill="#EFE2C0"/><circle cx="221" cy="174" r="1.5" fill="#22150F"/>
+      </svg>
+      <h2 data-i18n="ktName"></h2>
+      <p data-i18n="ktText"></p>
+      <span class="play" data-i18n="play"></span>
+    </a>
+  </div>
+
+  <p class="tip" data-i18n="tip"></p>
+</main>
+<script>
+(function () {
+  const T = {
+    en: {
+      title: "Games", lead: "Pick a game. They’re free, work on phones and computers, and you can play against the computer or invite someone.",
+      amobaText: "Five in a row on graph paper. Play the computer, someone next to you, or invite someone online.",
+      ktName: "Codebreaker", ktText: "Crack the hidden color code on the classic brown board. Play the computer, or invite someone and take turns hiding the code.",
+      play: "Play",
+      tip: "Tip: open your browser’s menu and choose “Add to Home Screen” to keep this page one tap away."
+    },
+    hu: {
+      title: "Játékok", lead: "Válassz egy játékot! Ingyenesek, telefonon és számítógépen is működnek, és játszhatsz a gép ellen, vagy meghívhatsz valakit.",
+      amobaText: "Ötöt egy sorba, kockás papíron. Játszhatsz a gép ellen, valakivel magad mellett, vagy meghívhatsz valakit online.",
+      ktName: "Kódtörő", ktText: "Fejtsd meg a rejtett színkódot a jól ismert barna táblán. Játszhatsz a gép ellen, vagy meghívhatsz valakit, és felváltva rejtitek el a kódot.",
+      play: "Játék",
+      tip: "Tipp: a böngésző menüjében válaszd a „Hozzáadás a kezdőképernyőhöz” lehetőséget, és ez az oldal egy koppintásra lesz."
+    }
+  };
+  const KEY = "amoba-lang";   // shared with the games, so everyone's language choice carries over
+  const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+  function detect() {
+    const s = lsGet(KEY);
+    if (s === "en" || s === "hu") return s;
+    const first = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    return /^hu\b/i.test(first) ? "hu" : "en";
+  }
+  let lang = detect();
+  function apply() {
+    document.documentElement.lang = lang;
+    document.title = T[lang].title;
+    document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = T[lang][el.dataset.i18n]; });
+    document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  }
+  document.querySelectorAll(".lang-btn").forEach(b => b.addEventListener("click", () => { lang = b.dataset.lang; lsSet(KEY, lang); apply(); }));
+  apply();
+})();
+</script>
+</body>
+</html>
