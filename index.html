@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Games</title>
-<meta name="description" content="Családi játékok: amőba és Kódtörő. Family games: five in a row and Codebreaker.">
+<meta name="description" content="Családi játékok: amőba, Kódtörő, malom, reversi és torpedó. Family games: five in a row, Codebreaker, Mill, Reversi and Battleships.">
 <meta property="og:title" content="Játékok · Games">
 <meta property="og:description" content="Válassz egy játékot! · Pick a game!">
 <meta name="theme-color" content="#1E3F9C">
@@ -132,6 +132,77 @@
       <p data-i18n="ktText"></p>
       <span class="play" data-i18n="play"></span>
     </a>
+    <a class="game" href="/malom/">
+      <svg class="pic" viewBox="0 0 320 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F5CF52"/><stop offset=".55" stop-color="#EDBE2E"/><stop offset="1" stop-color="#D6A51E"/></linearGradient>
+          <radialGradient id="mr" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#E2685D"/><stop offset=".7" stop-color="#C2352B"/><stop offset="1" stop-color="#7E1F18"/></radialGradient>
+          <radialGradient id="mbl" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#5E8BD2"/><stop offset=".7" stop-color="#2D5DA8"/><stop offset="1" stop-color="#1B3A6C"/></radialGradient>
+        </defs>
+        <ellipse cx="163" cy="194" rx="86" ry="6" fill="rgba(60,40,0,.18)"/>
+        <rect x="68" y="6" width="184" height="184" rx="5" fill="url(#mb)" stroke="#B48A12"/>
+        <g fill="none" stroke="#161310" stroke-width="2.6">
+          <rect x="84" y="22" width="152" height="152"/><rect x="109" y="47" width="102" height="102"/><rect x="134" y="72" width="52" height="52"/>
+          <path d="M160 22V72M160 124V174M84 98H134M186 98H236"/>
+        </g>
+        <g fill="none" stroke="#161310" stroke-width="1.2" stroke-linecap="round">
+          <path d="M151 119L153 100H167L169 119M145 119H175M154 100Q160 92 166 100"/>
+          <path d="M160 96L150 86M160 96L170 86M160 96L150 106M160 96L170 106"/>
+        </g>
+        <g fill="#161310">
+          <circle cx="84" cy="22" r="3"/><circle cx="160" cy="22" r="3"/><circle cx="236" cy="22" r="3"/><circle cx="236" cy="98" r="3"/><circle cx="236" cy="174" r="3"/><circle cx="160" cy="174" r="3"/><circle cx="84" cy="174" r="3"/><circle cx="84" cy="98" r="3"/>
+          <circle cx="109" cy="47" r="3"/><circle cx="160" cy="47" r="3"/><circle cx="211" cy="47" r="3"/><circle cx="211" cy="98" r="3"/><circle cx="211" cy="149" r="3"/><circle cx="160" cy="149" r="3"/><circle cx="109" cy="149" r="3"/><circle cx="109" cy="98" r="3"/>
+        </g>
+        <g>
+          <circle cx="84" cy="24" r="10" fill="#7E1F18"/><circle cx="84" cy="22" r="10" fill="url(#mr)"/>
+          <circle cx="160" cy="24" r="10" fill="#7E1F18"/><circle cx="160" cy="22" r="10" fill="url(#mr)"/>
+          <circle cx="211" cy="100" r="10" fill="#7E1F18"/><circle cx="211" cy="98" r="10" fill="url(#mr)"/>
+          <circle cx="109" cy="151" r="10" fill="#1B3A6C"/><circle cx="109" cy="149" r="10" fill="url(#mbl)"/>
+          <circle cx="160" cy="49" r="10" fill="#1B3A6C"/><circle cx="160" cy="47" r="10" fill="url(#mbl)"/>
+          <circle cx="236" cy="176" r="10" fill="#1B3A6C"/><circle cx="236" cy="174" r="10" fill="url(#mbl)"/>
+        </g>
+      </svg>
+      <h2 data-i18n="mlName"></h2>
+      <p data-i18n="mlText"></p>
+      <span class="play" data-i18n="play"></span>
+    </a>
+    <a class="game" href="/reversi/">
+      <svg class="pic" viewBox="0 0 320 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="rf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A8A50"/><stop offset=".6" stop-color="#1E7342"/><stop offset="1" stop-color="#175E35"/></linearGradient>
+          <radialGradient id="rdB" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#5a5a5a"/><stop offset=".55" stop-color="#1c1c1c"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient>
+          <radialGradient id="rdW" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#EEEBE1"/><stop offset="1" stop-color="#C8C3B4"/></radialGradient>
+        </defs>
+        <ellipse cx="163" cy="194" rx="86" ry="6" fill="rgba(0,30,10,.18)"/>
+        <rect x="72" y="12" width="180" height="180" rx="6" fill="#123F24"/>
+        <rect x="82" y="22" width="160" height="160" fill="url(#rf)"/>
+        <g stroke="#0E3A20" stroke-width="1.2"><path d="M102 22V182M82 42H242"/><path d="M122 22V182M82 62H242"/><path d="M142 22V182M82 82H242"/><path d="M162 22V182M82 102H242"/><path d="M182 22V182M82 122H242"/><path d="M202 22V182M82 142H242"/><path d="M222 22V182M82 162H242"/></g>
+        <rect x="82" y="22" width="160" height="160" fill="none" stroke="#0E3A20" stroke-width="2"/>
+        <circle cx="133" cy="73.5" r="8" fill="#A9A496"/><circle cx="132" cy="72" r="8" fill="url(#rdW)"/><circle cx="153" cy="73.5" r="8" fill="#050505"/><circle cx="152" cy="72" r="8" fill="url(#rdB)"/><circle cx="133" cy="93.5" r="8" fill="#050505"/><circle cx="132" cy="92" r="8" fill="url(#rdB)"/><circle cx="153" cy="93.5" r="8" fill="#A9A496"/><circle cx="152" cy="92" r="8" fill="url(#rdW)"/><circle cx="173" cy="93.5" r="8" fill="#050505"/><circle cx="172" cy="92" r="8" fill="url(#rdB)"/><circle cx="153" cy="113.5" r="8" fill="#050505"/><circle cx="152" cy="112" r="8" fill="url(#rdB)"/><circle cx="173" cy="113.5" r="8" fill="#A9A496"/><circle cx="172" cy="112" r="8" fill="url(#rdW)"/><circle cx="133" cy="113.5" r="8" fill="#A9A496"/><circle cx="132" cy="112" r="8" fill="url(#rdW)"/><circle cx="193" cy="113.5" r="8" fill="#050505"/><circle cx="192" cy="112" r="8" fill="url(#rdB)"/><circle cx="173" cy="73.5" r="8" fill="#A9A496"/><circle cx="172" cy="72" r="8" fill="url(#rdW)"/>
+      </svg>
+      <h2 data-i18n="rvName"></h2>
+      <p data-i18n="rvText"></p>
+      <span class="play" data-i18n="play"></span>
+    </a>
+    <a class="game" href="/torpedo/">
+      <svg class="pic" viewBox="0 0 320 200" aria-hidden="true">
+        <defs>
+          <pattern id="tsq" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="var(--grid)" stroke-width="1"/></pattern>
+          <pattern id="tph" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><path d="M0 0V6" stroke="var(--ink-x)" stroke-width="1.6" opacity=".45"/></pattern>
+          <pattern id="tpr" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(-45)"><path d="M0 0V6" stroke="var(--ink-o)" stroke-width="1.6" opacity=".4"/></pattern>
+        </defs>
+        <rect x="1" y="1" width="318" height="198" rx="6" fill="var(--paper)" stroke="var(--edge)"/>
+        <rect x="1" y="1" width="318" height="198" rx="6" fill="url(#tsq)"/>
+        <line x1="34" y1="1" x2="34" y2="199" stroke="var(--margin)" stroke-width="2" opacity=".75"/>
+        <rect x="60" y="30" width="200" height="140" fill="var(--paper)"/>
+        <g stroke="var(--grid)" stroke-width="1"><path d="M60 30V170"/><path d="M80 30V170"/><path d="M100 30V170"/><path d="M120 30V170"/><path d="M140 30V170"/><path d="M160 30V170"/><path d="M180 30V170"/><path d="M200 30V170"/><path d="M220 30V170"/><path d="M240 30V170"/><path d="M260 30V170"/><path d="M60 30H260"/><path d="M60 50H260"/><path d="M60 70H260"/><path d="M60 90H260"/><path d="M60 110H260"/><path d="M60 130H260"/><path d="M60 150H260"/><path d="M60 170H260"/></g>
+        <text x="70" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">A</text><text x="90" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">B</text><text x="110" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">C</text><text x="130" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">D</text><text x="150" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">E</text><text x="170" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">F</text><text x="190" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">G</text><text x="210" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">H</text><text x="230" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">I</text><text x="250" y="24" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">J</text><text x="52" y="44" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">1</text><text x="52" y="64" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">2</text><text x="52" y="84" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">3</text><text x="52" y="104" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">4</text><text x="52" y="124" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">5</text><text x="52" y="144" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">6</text><text x="52" y="164" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="Kalam, cursive">7</text>
+        <rect x="83" y="53" width="74" height="14" rx="5" fill="url(#tph)" stroke="var(--ink-x)" stroke-width="2"/><rect x="203" y="73" width="14" height="54" rx="5" fill="url(#tpr)" stroke="var(--ink-o)" stroke-width="2"/><rect x="123" y="113" width="34" height="14" rx="5" fill="url(#tph)" stroke="var(--ink-x)" stroke-width="2"/><rect x="243" y="133" width="14" height="14" rx="5" fill="url(#tph)" stroke="var(--ink-x)" stroke-width="2"/><path d="M205 75l10 10M215 75l-10 10" stroke="var(--ink-o)" stroke-width="2.6" stroke-linecap="round"/><path d="M205 95l10 10M215 95l-10 10" stroke="var(--ink-o)" stroke-width="2.6" stroke-linecap="round"/><path d="M205 115l10 10M215 115l-10 10" stroke="var(--ink-o)" stroke-width="2.6" stroke-linecap="round"/><path d="M105 55l10 10M115 55l-10 10" stroke="var(--ink-o)" stroke-width="2.6" stroke-linecap="round"/><circle cx="170" cy="100" r="2.4" fill="var(--text)"/><circle cx="250" cy="60" r="2.4" fill="var(--text)"/><circle cx="90" cy="140" r="2.4" fill="var(--text)"/><circle cx="150" cy="160" r="2.4" fill="var(--text)"/><circle cx="230" cy="160" r="2.4" fill="var(--text)"/>
+      </svg>
+      <h2 data-i18n="tpName"></h2>
+      <p data-i18n="tpText"></p>
+      <span class="play" data-i18n="play"></span>
+    </a>
   </div>
 
   <p class="tip" data-i18n="tip"></p>
@@ -143,6 +214,9 @@
       title: "Games", lead: "Pick a game. They’re free, work on phones and computers, and you can play against the computer or invite someone.",
       amobaText: "Five in a row on graph paper. Play the computer, someone next to you, or invite someone online.",
       ktName: "Codebreaker", ktText: "Crack the hidden color code on the classic brown board. Play the computer, or invite someone and take turns hiding the code.",
+      mlName: "Mill", mlText: "The classic game of nine pieces on the yellow board with the windmill. Line up three to take a piece. Play the computer, someone next to you, or invite someone online.",
+      rvName: "Reversi", rvText: "Also known as Othello. Trap your opponent’s discs to flip them to your color on the green board. Play the computer, someone next to you, or invite someone online.",
+      tpName: "Battleships", tpText: "The classic notebook game of hidden fleets. Place your ships, then take turns firing at the other player’s grid. Play the computer, or invite someone online.",
       play: "Play",
       tip: "Tip: open your browser’s menu and choose “Add to Home Screen” to keep this page one tap away."
     },
@@ -150,6 +224,9 @@
       title: "Játékok", lead: "Válassz egy játékot! Ingyenesek, telefonon és számítógépen is működnek, és játszhatsz a gép ellen, vagy meghívhatsz valakit.",
       amobaText: "Ötöt egy sorba, kockás papíron. Játszhatsz a gép ellen, valakivel magad mellett, vagy meghívhatsz valakit online.",
       ktName: "Kódtörő", ktText: "Fejtsd meg a rejtett színkódot a jól ismert barna táblán. Játszhatsz a gép ellen, vagy meghívhatsz valakit, és felváltva rejtitek el a kódot.",
+      mlName: "Malom", mlText: "A klasszikus kilencbábus játék a sárga, szélmalmos táblán. Rakj ki hármat egy vonalban, és levehetsz egy bábut. Játszhatsz a gép ellen, valakivel magad mellett, vagy meghívhatsz valakit online.",
+      rvName: "Reversi", rvText: "Othello néven is ismert. Fogd közre az ellenfél korongjait, és fordítsd át őket a saját színedre a zöld táblán. Játszhatsz a gép ellen, valakivel magad mellett, vagy meghívhatsz valakit online.",
+      tpName: "Torpedó", tpText: "A klasszikus füzetlapos játék rejtett flottákkal. Helyezd el a hajóidat, aztán felváltva lőttök egymás tábláira. Játszhatsz a gép ellen, vagy meghívhatsz valakit online.",
       play: "Játék",
       tip: "Tipp: a böngésző menüjében válaszd a „Hozzáadás a kezdőképernyőhöz” lehetőséget, és ez az oldal egy koppintásra lesz."
     }
